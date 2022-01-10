@@ -1,0 +1,8 @@
+<resources>
+  <string name="app_name">AQI Monitoring</string>
+  <string name="app_bar_title">AQI QUALITY MONITORING</string>
+  <string name="loading_message">Loading AQI…</string>
+  <string name="cities_header">CITIES</string>
+  <string name="aqi_header">AQI</string>
+  <string name="when_header">WHEN</string>
+</resources>

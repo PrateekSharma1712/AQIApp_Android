@@ -1,0 +1,85 @@
+plugins {
+  id 'com.android.application'
+  id 'kotlin-android'
+  id 'dagger.hilt.android.plugin'
+  id 'kotlin-kapt'
+}
+
+android {
+  compileSdk 31
+
+  defaultConfig {
+    applicationId "com.example.aqiapp"
+    minSdk 21
+    targetSdk 31
+    versionCode 1
+    versionName "1.0"
+
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    vectorDrawables {
+      useSupportLibrary true
+    }
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+  kotlinOptions {
+    jvmTarget = '1.8'
+    useIR = true
+  }
+  buildFeatures {
+    compose true
+  }
+  composeOptions {
+    kotlinCompilerExtensionVersion compose_version
+  }
+  packagingOptions {
+    resources {
+      excludes += '/META-INF/{AL2.0,LGPL2.1}'
+      exclude '**/attach_hotspot_windows.dll'
+      exclude 'META-INF/licenses/ASM'
+    }
+  }
+}
+
+dependencies {
+
+  implementation 'androidx.core:core-ktx:1.7.0'
+  implementation 'androidx.appcompat:appcompat:1.4.0'
+  implementation 'com.google.android.material:material:1.4.0'
+  implementation "androidx.compose.ui:ui:$compose_version"
+  implementation "androidx.compose.material:material:$compose_version"
+  implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
+  implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0'
+  implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0"
+  implementation 'androidx.activity:activity-compose:1.4.0'
+
+  implementation 'androidx.compose.runtime:runtime-livedata:1.0.5'
+
+  implementation "com.google.dagger:hilt-android:$hilt_version"
+  kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+  implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03'
+
+  implementation 'com.squareup.moshi:moshi-kotlin:1.12.0'
+  kapt 'com.squareup.moshi:moshi-kotlin-codegen:1.12.0'
+
+  implementation platform('com.squareup.okhttp3:okhttp-bom:4.9.0')
+  implementation 'com.squareup.okhttp3:okhttp'
+  implementation 'com.squareup.okhttp3:logging-interceptor'
+
+  implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+  implementation 'com.tinder.scarlet:scarlet:0.1.12'
+  implementation 'com.tinder.scarlet:lifecycle-android:0.1.12'
+  implementation 'com.tinder.scarlet:websocket-okhttp:0.1.12'
+  implementation 'com.tinder.scarlet:message-adapter-moshi:0.1.12'
+  implementation 'com.tinder.scarlet:stream-adapter-coroutines:0.1.12'
+}
